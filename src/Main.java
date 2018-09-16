@@ -4,24 +4,15 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
 
-    private static int arrayLength = 10000;
+    private static final int arrayLength = 10000;
+
+    private static int[] array = new int[arrayLength];
+    private static int[] arrayUnsorted = new int[arrayLength];
 
     public static void main(String[] args) {
 
         long startTime;
         long elapsedTime;
-
-        int[] bubbleSort = initArray();
-        int[] insertionSort = initArray();
-        int[] selectionSort = initArray();
-        int[] quickSort = initArray();
-        int[] countingSort = initArray();
-
-        int[] bubbleSortUnsort = bubbleSort.clone();
-        int[] insertionSortUnsort = insertionSort.clone();
-        int[] selectionSortUnsort = selectionSort.clone();
-        int[] quickSortUnsort = quickSort.clone();
-        int[] countingSortUnsort = quickSort.clone();
 
         System.out.println("================================================");
         System.out.println("============= Sortier Algorithmen ==============");
@@ -29,62 +20,81 @@ public class Main {
 
         space();
 
+
         // Bubble Sort
         System.out.println("================== Bubble Sort =================");
+        initArray();
         startTime = System.nanoTime();
-        BubbleSort.sort(bubbleSort);
+        BubbleSort.sort(array);
         elapsedTime = System.nanoTime() - startTime;
         elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-        System.out.println("Unsortiertes Array: " + Arrays.toString(bubbleSortUnsort));
-        System.out.println("Sortiertes Array: " + Arrays.toString(bubbleSort));
+        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
+        System.out.println("Sortiertes Array: " + Arrays.toString(array));
         System.out.println("Dauer: " + elapsedTime + "ms");
 
         space();
 
         // Insertion Sort
         System.out.println("================= Insertion Sort ================");
+        initArray();
         startTime = System.nanoTime();
-        InsertionSort.sort(insertionSort);
+        InsertionSort.sort(array);
         elapsedTime = System.nanoTime() - startTime;
         elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-        System.out.println("Unsortiertes Array: " + Arrays.toString(insertionSortUnsort));
-        System.out.println("Sortiertes Array: " + Arrays.toString(insertionSort));
+        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
+        System.out.println("Sortiertes Array: " + Arrays.toString(array));
         System.out.println("Dauer: " + elapsedTime + "ms");
 
         space();
 
         // Selection Sort
         System.out.println("================= Selection Sort ================");
+        initArray();
         startTime = System.nanoTime();
-        SelectionSort.sort(selectionSort);
+        SelectionSort.sort(array);
         elapsedTime = System.nanoTime() - startTime;
         elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-        System.out.println("Unsortiertes Array: " + Arrays.toString(selectionSortUnsort));
-        System.out.println("Sortiertes Array: " + Arrays.toString(selectionSort));
+        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
+        System.out.println("Sortiertes Array: " + Arrays.toString(array));
         System.out.println("Dauer: " + elapsedTime + "ms");
 
         space();
 
         // Quick Sort
         System.out.println("=================== Quick Sort =================");
+        initArray();
         startTime = System.nanoTime();
-        SelectionSort.sort(quickSort);
+        SelectionSort.sort(array);
         elapsedTime = System.nanoTime() - startTime;
         elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-        System.out.println("Unsortiertes Array: " + Arrays.toString(quickSortUnsort));
-        System.out.println("Sortiertes Array: " + Arrays.toString(quickSort));
+        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
+        System.out.println("Sortiertes Array: " + Arrays.toString(array));
         System.out.println("Dauer: " + elapsedTime + "ms");
 
         space();
 
         // Counting Sort
         System.out.println("================= Counting Sort ================");
+        initArray();
         startTime = System.nanoTime();
-        CountingSort.sort(countingSort);
+        CountingSort.sort(array);
         elapsedTime = System.nanoTime() - startTime;
         elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-        System.out.println("Unsortiertes Array: " + Arrays.toString(countingSortUnsort));
-        System.out.println("Sortiertes Array: " + Arrays.toString(countingSort));
+        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
+        System.out.println("Sortiertes Array: " + Arrays.toString(array));
+        System.out.println("Dauer: " + elapsedTime + "ms");
+
+        space();
+
+        // Radix Sort
+        System.out.println("================= Radix Sort ================");
+        initArray();
+        startTime = System.nanoTime();
+        RadixSort.sort(array);
+        elapsedTime = System.nanoTime() - startTime;
+        elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
+        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
+        System.out.println("Sortiertes Array: " + Arrays.toString(array));
         System.out.println("Dauer: " + elapsedTime + "ms");
     }
 
@@ -93,11 +103,10 @@ public class Main {
         System.out.println(" ");
     }
 
-    private static int[] initArray() {
-        int[] array = new int[arrayLength];
+    private static void initArray() {
         for (int i = 0; i < array.length; i++) {
             array[i] = ThreadLocalRandom.current().nextInt(0, 100);
         }
-        return array;
+        arrayUnsorted = array.clone();
     }
 }
