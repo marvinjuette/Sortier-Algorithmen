@@ -6,6 +6,8 @@ public class Main {
 
     private static final int arrayLength = 10000;
 
+    private static final boolean SHOW_ARRAYS = true;
+
     private static int[] array = new int[arrayLength];
     private static int[] arrayUnsorted = new int[arrayLength];
 
@@ -26,76 +28,55 @@ public class Main {
         initArray();
         startTime = System.nanoTime();
         BubbleSort.sort(array);
-        elapsedTime = System.nanoTime() - startTime;
-        elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
-        System.out.println("Sortiertes Array: " + Arrays.toString(array));
-        System.out.println("Dauer: " + elapsedTime + "ms");
-
-        space();
+        evaluateTime(startTime);
 
         // Insertion Sort
         System.out.println("================= Insertion Sort ================");
         initArray();
         startTime = System.nanoTime();
         InsertionSort.sort(array);
-        elapsedTime = System.nanoTime() - startTime;
-        elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
-        System.out.println("Sortiertes Array: " + Arrays.toString(array));
-        System.out.println("Dauer: " + elapsedTime + "ms");
-
-        space();
+        evaluateTime(startTime);
 
         // Selection Sort
         System.out.println("================= Selection Sort ================");
         initArray();
         startTime = System.nanoTime();
         SelectionSort.sort(array);
-        elapsedTime = System.nanoTime() - startTime;
-        elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
-        System.out.println("Sortiertes Array: " + Arrays.toString(array));
-        System.out.println("Dauer: " + elapsedTime + "ms");
-
-        space();
+        evaluateTime(startTime);
 
         // Quick Sort
         System.out.println("=================== Quick Sort =================");
         initArray();
         startTime = System.nanoTime();
         SelectionSort.sort(array);
-        elapsedTime = System.nanoTime() - startTime;
-        elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
-        System.out.println("Sortiertes Array: " + Arrays.toString(array));
-        System.out.println("Dauer: " + elapsedTime + "ms");
-
-        space();
+        evaluateTime(startTime);
 
         // Counting Sort
         System.out.println("================= Counting Sort ================");
         initArray();
         startTime = System.nanoTime();
         CountingSort.sort(array);
-        elapsedTime = System.nanoTime() - startTime;
-        elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
-        System.out.println("Sortiertes Array: " + Arrays.toString(array));
-        System.out.println("Dauer: " + elapsedTime + "ms");
-
-        space();
+        evaluateTime(startTime);
 
         // Radix Sort
         System.out.println("================= Radix Sort ================");
         initArray();
         startTime = System.nanoTime();
         RadixSort.sort(array);
+        evaluateTime(startTime);
+    }
+
+    private static void evaluateTime(long startTime) {
+        long elapsedTime;
         elapsedTime = System.nanoTime() - startTime;
         elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-        System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
-        System.out.println("Sortiertes Array: " + Arrays.toString(array));
+        if (SHOW_ARRAYS) {
+            System.out.println("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
+            System.out.println("Sortiertes Array: " + Arrays.toString(array));
+        }
         System.out.println("Dauer: " + elapsedTime + "ms");
+
+        space();
     }
 
     private static void space() {
