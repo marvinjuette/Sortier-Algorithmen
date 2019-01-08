@@ -1,3 +1,5 @@
+package de.nivram710.sortieralgorithmen.main;
+
 class InsertionSort {
 
     static void sort(int[] array) {

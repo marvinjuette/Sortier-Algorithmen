@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <right>
+      <VBox fx:id="checkbox_selectionsort" alignment="CENTER_LEFT" prefHeight="375.0" prefWidth="161.0" BorderPane.alignment="CENTER">
+         <children>
+            <CheckBox fx:id="checkbox_bubblesort" mnemonicParsing="false" text="Bubblesort">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="checkbox_insertionsort" mnemonicParsing="false" text="Insertionsort">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox mnemonicParsing="false" text="Selectionsort">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="checkbox_quicksort" mnemonicParsing="false" text="Quicksort">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="checkbox_countingsort" mnemonicParsing="false" text="Countingsort">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="checkbox_radixsort" mnemonicParsing="false" text="Radixsort">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <center>
+      <ListView fx:id="listview_results" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" top="30.0" />
+         </BorderPane.margin></ListView>
+   </center>
+   <bottom>
+      <Button fx:id="button_start" mnemonicParsing="false" text="Start" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+</BorderPane>

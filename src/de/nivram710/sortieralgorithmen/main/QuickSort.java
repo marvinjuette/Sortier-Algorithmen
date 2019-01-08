@@ -1,3 +1,5 @@
+package de.nivram710.sortieralgorithmen.main;
+
 class QuickSort {
 
     private static int partition(int[] array, int left, int right) {
