@@ -64,7 +64,6 @@ public class Controller implements Initializable {
 
         button_start.setOnAction(event -> {
             startSorting();
-            button_start.setDisable(true);
         });
 
     }
