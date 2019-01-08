@@ -14,7 +14,7 @@ public class Controller implements Initializable {
 
     public CheckBox checkbox_bubblesort;
     public CheckBox checkbox_selectionsort;
-    public CheckBox checkbox_insertionesort;
+    public CheckBox checkbox_insertionsort;
     public CheckBox checkbox_quicksort;
     public CheckBox checkbox_countingsort;
     public CheckBox checkbox_radixsort;
@@ -23,7 +23,7 @@ public class Controller implements Initializable {
 
     public ListView<Label> listview_results;
 
-    private static Controller instance;
+    public static Controller instance;
 
     public Controller() {
         instance = this;
@@ -37,7 +37,7 @@ public class Controller implements Initializable {
 
         boolean bubblsort = checkbox_bubblesort.isSelected();
         boolean selectionsort = checkbox_selectionsort.isSelected();
-        boolean insertionsort = checkbox_insertionesort.isSelected();
+        boolean insertionsort = checkbox_insertionsort.isSelected();
         boolean quicksort = checkbox_quicksort.isSelected();
         boolean countingsort = checkbox_countingsort.isSelected();
         boolean radixsort = checkbox_radixsort.isSelected();
@@ -54,9 +54,18 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        checkbox_bubblesort.setSelected(true);
+        checkbox_selectionsort.setSelected(true);
+        checkbox_insertionsort.setSelected(true);
+        checkbox_quicksort.setSelected(true);
+        checkbox_countingsort.setSelected(true);
+        checkbox_radixsort.setSelected(true);
+
         button_start.setOnAction(event -> {
             startSorting();
             button_start.setDisable(true);
         });
+
     }
 }

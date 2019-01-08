@@ -7,9 +7,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.nivram710.sortieralgorithmen.fx.Controller">
    <right>
-      <VBox fx:id="checkbox_selectionsort" alignment="CENTER_LEFT" prefHeight="375.0" prefWidth="161.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER_LEFT" prefHeight="375.0" prefWidth="161.0" BorderPane.alignment="CENTER">
          <children>
             <CheckBox fx:id="checkbox_bubblesort" mnemonicParsing="false" text="Bubblesort">
                <VBox.margin>
@@ -21,7 +21,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" text="Selectionsort">
+            <CheckBox fx:id="checkbox_selectionsort" mnemonicParsing="false" text="Selectionsort">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -54,7 +54,7 @@
          </BorderPane.margin></ListView>
    </center>
    <bottom>
-      <Button fx:id="button_start" mnemonicParsing="false" text="Start" BorderPane.alignment="CENTER">
+      <Button id="button_start" fx:id="button_start" mnemonicParsing="false" text="Start" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" top="10.0" />
          </BorderPane.margin>
