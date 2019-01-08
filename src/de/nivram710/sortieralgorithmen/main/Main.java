@@ -26,12 +26,13 @@ public class Main {
         long startTime;
         long elapsedTime;
 
-        System.out.println("================================================");
-        System.out.println("============= Sortier Algorithmen ==============");
-        System.out.println("================================================");
+        if(!windowMode) {
+            System.out.println("================================================");
+            System.out.println("============= Sortier Algorithmen ==============");
+            System.out.println("================================================");
 
-        space();
-
+            space();
+        }
 
         // Bubble Sort
         if(bubblesort) {
@@ -46,7 +47,7 @@ public class Main {
         // Insertion Sort
         if(insertionsort) {
             if(windowMode) Controller.getInstace().addLabelToListView("================= Insertion Sort ================");
-            System.out.println("================= Insertion Sort ================");
+            else System.out.println("================= Insertion Sort ================");
             initArray();
             startTime = System.nanoTime();
             InsertionSort.sort(array);
@@ -56,7 +57,7 @@ public class Main {
         // Selection Sort
         if(selectionsort) {
             if(windowMode) Controller.getInstace().addLabelToListView("================= Selection Sort ================");
-            System.out.println("================= Selection Sort ================");
+            else System.out.println("================= Selection Sort ================");
             initArray();
             startTime = System.nanoTime();
             SelectionSort.sort(array);
@@ -66,7 +67,7 @@ public class Main {
         // Quick Sort
         if(quicksort) {
             if(windowMode) Controller.getInstace().addLabelToListView("=================== Quick Sort =================");
-            System.out.println("=================== Quick Sort =================");
+            else System.out.println("=================== Quick Sort =================");
             initArray();
             startTime = System.nanoTime();
             SelectionSort.sort(array);
@@ -76,7 +77,7 @@ public class Main {
         // Counting Sort
         if(countingsort) {
             if(windowMode) Controller.getInstace().addLabelToListView("================= Counting Sort ================");
-            System.out.println("================= Counting Sort ================");
+            else System.out.println("================= Counting Sort ================");
             initArray();
             startTime = System.nanoTime();
             CountingSort.sort(array);
@@ -86,7 +87,7 @@ public class Main {
         // Radix Sort
         if(radixsort) {
             if(windowMode) Controller.getInstace().addLabelToListView("================= Radix Sort ================");
-            System.out.println("================= Radix Sort ================");
+            else System.out.println("================= Radix Sort ================");
             initArray();
             startTime = System.nanoTime();
             RadixSort.sort(array);
