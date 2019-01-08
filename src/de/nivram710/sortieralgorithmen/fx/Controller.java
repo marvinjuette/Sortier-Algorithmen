@@ -1,12 +1,16 @@
 package de.nivram710.sortieralgorithmen.fx;
 
 import de.nivram710.sortieralgorithmen.main.Main;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
-public class Controller {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Controller implements Initializable {
 
     public CheckBox checkbox_bubblesort;
     public CheckBox checkbox_selectionsort;
@@ -48,4 +52,11 @@ public class Controller {
 
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        button_start.setOnAction(event -> {
+            startSorting();
+            button_start.setDisable(true);
+        });
+    }
 }
