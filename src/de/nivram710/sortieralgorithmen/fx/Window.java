@@ -18,7 +18,7 @@ public class Window extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("layout_window.fxml"));
-        primaryStage.setTitle("Sortieralogrithmen");
+        primaryStage.setTitle("Sortier-Algorithmen");
         primaryStage.setScene(new Scene(root));
         primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.show();
