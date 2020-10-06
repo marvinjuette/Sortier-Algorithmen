@@ -1,50 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.nivram710.sortieralgorithmen.fx.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.nivram710.sortieralgorithmen.fx.Controller">
    <right>
       <VBox alignment="CENTER_LEFT" prefHeight="375.0" prefWidth="161.0" BorderPane.alignment="CENTER">
-         <children>
-            <CheckBox fx:id="checkbox_bubblesort" mnemonicParsing="false" text="Bubblesort">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="checkbox_insertionsort" mnemonicParsing="false" text="Insertionsort">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="checkbox_selectionsort" mnemonicParsing="false" text="Selectionsort">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="checkbox_quicksort" mnemonicParsing="false" text="Quicksort">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="checkbox_countingsort" mnemonicParsing="false" text="Countingsort">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="checkbox_radixsort" mnemonicParsing="false" text="Radixsort">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </CheckBox>
-         </children>
          <BorderPane.margin>
-            <Insets left="10.0" />
+            <Insets left="10.0"/>
          </BorderPane.margin>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Größe des Arrays" textAlignment="CENTER">
+            <VBox.margin>
+               <Insets bottom="10.0"/>
+            </VBox.margin>
+         </Text>
+         <Spinner fx:id="spinner_array_size" editable="true" prefHeight="25.0" prefWidth="109.0">
+            <opaqueInsets>
+               <Insets/>
+            </opaqueInsets>
+            <VBox.margin>
+               <Insets bottom="10.0"/>
+            </VBox.margin>
+         </Spinner>
+         <Separator prefWidth="200.0"/>
+         <CheckBox fx:id="checkbox_bubblesort" mnemonicParsing="false" text="Bubblesort">
+            <VBox.margin>
+               <Insets top="10.0"/>
+            </VBox.margin>
+         </CheckBox>
+         <CheckBox fx:id="checkbox_insertionsort" mnemonicParsing="false" text="Insertionsort">
+            <VBox.margin>
+               <Insets top="10.0"/>
+            </VBox.margin>
+         </CheckBox>
+         <CheckBox fx:id="checkbox_mergesort" layoutX="10.0" layoutY="176.0" mnemonicParsing="false" text="Mergesort">
+            <VBox.margin>
+               <Insets top="10.0"/>
+            </VBox.margin>
+         </CheckBox>
+         <CheckBox fx:id="checkbox_selectionsort" mnemonicParsing="false" text="Selectionsort">
+            <VBox.margin>
+               <Insets top="10.0"/>
+            </VBox.margin>
+         </CheckBox>
+         <CheckBox fx:id="checkbox_quicksort" mnemonicParsing="false" text="Quicksort">
+            <VBox.margin>
+               <Insets top="10.0"/>
+            </VBox.margin>
+         </CheckBox>
+         <CheckBox fx:id="checkbox_countingsort" mnemonicParsing="false" text="Countingsort">
+            <VBox.margin>
+               <Insets top="10.0"/>
+            </VBox.margin>
+         </CheckBox>
+         <CheckBox fx:id="checkbox_radixsort" mnemonicParsing="false" text="Radixsort">
+            <VBox.margin>
+               <Insets top="10.0"/>
+            </VBox.margin>
+         </CheckBox>
       </VBox>
    </right>
    <center>

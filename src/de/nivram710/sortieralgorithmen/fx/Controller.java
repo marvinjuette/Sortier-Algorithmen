@@ -2,10 +2,7 @@ package de.nivram710.sortieralgorithmen.fx;
 
 import de.nivram710.sortieralgorithmen.main.Main;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,13 +12,14 @@ public class Controller implements Initializable {
     public CheckBox checkbox_bubblesort;
     public CheckBox checkbox_selectionsort;
     public CheckBox checkbox_insertionsort;
+    public CheckBox checkbox_mergesort;
     public CheckBox checkbox_quicksort;
     public CheckBox checkbox_countingsort;
     public CheckBox checkbox_radixsort;
+    public ListView<Label> listview_results;
+    public Spinner<Integer> spinner_array_size;
 
     public Button button_start;
-
-    public ListView<Label> listview_results;
 
     public static Controller instance;
 
@@ -38,11 +36,21 @@ public class Controller implements Initializable {
         boolean bubblsort = checkbox_bubblesort.isSelected();
         boolean selectionsort = checkbox_selectionsort.isSelected();
         boolean insertionsort = checkbox_insertionsort.isSelected();
+        boolean mergesort = checkbox_mergesort.isSelected();
         boolean quicksort = checkbox_quicksort.isSelected();
         boolean countingsort = checkbox_countingsort.isSelected();
         boolean radixsort = checkbox_radixsort.isSelected();
 
-        Main.runAlgorithms(bubblsort, selectionsort, insertionsort, quicksort, countingsort, radixsort, true);
+        SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1_000_000_000);
+        spinner_array_size = new Spinner<>(valueFactory);
+        spinner_array_size.setEditable(true);
+        spinner_array_size.getValueFactory().setValue(Main.arrayLength);
+
+        listview_results.getItems().clear();
+
+        int arraySize = spinner_array_size.getValue();
+
+        Main.runAlgorithms(bubblsort, selectionsort, insertionsort, mergesort, quicksort, countingsort, radixsort, true, arraySize);
 
     }
 
@@ -58,13 +66,12 @@ public class Controller implements Initializable {
         checkbox_bubblesort.setSelected(true);
         checkbox_selectionsort.setSelected(true);
         checkbox_insertionsort.setSelected(true);
+        checkbox_mergesort.setSelected(true);
         checkbox_quicksort.setSelected(true);
         checkbox_countingsort.setSelected(true);
         checkbox_radixsort.setSelected(true);
 
-        button_start.setOnAction(event -> {
-            startSorting();
-        });
+        button_start.setOnAction(event -> startSorting());
 
     }
 }

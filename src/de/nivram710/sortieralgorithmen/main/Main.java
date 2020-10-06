@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
 
-    private static final int arrayLength = 10000;
+    public static final int arrayLength = 10_000;
 
     private static final boolean SHOW_ARRAYS = true;
 
@@ -17,14 +17,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        runAlgorithms(true, true, true, true, true, true, false);
+        runAlgorithms(true, true, true, true, true, true, true, false, arrayLength);
 
     }
 
-    public static void runAlgorithms(boolean bubblesort, boolean selectionsort, boolean insertionsort, boolean quicksort, boolean countingsort, boolean radixsort, boolean windowMode) {
+    public static void runAlgorithms(boolean bubblesort, boolean selectionsort, boolean insertionsort, boolean mergesort, boolean quicksort, boolean countingsort, boolean radixsort, boolean windowMode, int arraySize) {
 
         long startTime;
-        long elapsedTime;
 
         if(!windowMode) {
             System.out.println("================================================");
@@ -61,6 +60,16 @@ public class Main {
             initArray();
             startTime = System.nanoTime();
             SelectionSort.sort(array);
+            evaluateTime(startTime, windowMode);
+        }
+
+        // Merge Sort
+        if(mergesort) {
+            if(windowMode) Controller.getInstace().addLabelToListView("=================== Merge Sort ===================");
+            else System.out.println("=================== Merge Sort ===================");
+            initArray();
+            startTime = System.nanoTime();
+            array = MergeSort.sort(array);
             evaluateTime(startTime, windowMode);
         }
 
@@ -101,6 +110,13 @@ public class Main {
         long elapsedTime;
         elapsedTime = System.nanoTime() - startTime;
         elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
+
+        boolean isUnitSecond = false;
+        if (elapsedTime > 1500) {
+            elapsedTime = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.MILLISECONDS);
+            isUnitSecond = true;
+        }
+
         if (SHOW_ARRAYS) {
             if(windowMode) {
                 Controller.getInstace().addLabelToListView("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
@@ -110,8 +126,9 @@ public class Main {
                 System.out.println("Sortiertes Array: " + Arrays.toString(array));
             }
         }
-        if(windowMode) Controller.getInstace().addLabelToListView("Dauer: " + elapsedTime + "ms");
-        else System.out.println("Dauer: " + elapsedTime + "ms");
+        String unit = isUnitSecond? "s" : "ms";
+        if(windowMode) Controller.getInstace().addLabelToListView("Dauer: " + elapsedTime + unit);
+        else System.out.println("Dauer: " + elapsedTime + unit);
 
         if(!windowMode) space();
     }
