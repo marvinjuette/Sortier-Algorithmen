@@ -41,11 +41,6 @@ public class Controller implements Initializable {
         boolean countingsort = checkbox_countingsort.isSelected();
         boolean radixsort = checkbox_radixsort.isSelected();
 
-        SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1_000_000_000);
-        spinner_array_size = new Spinner<>(valueFactory);
-        spinner_array_size.setEditable(true);
-        spinner_array_size.getValueFactory().setValue(Main.arrayLength);
-
         listview_results.getItems().clear();
 
         int arraySize = spinner_array_size.getValue();
@@ -70,6 +65,10 @@ public class Controller implements Initializable {
         checkbox_quicksort.setSelected(true);
         checkbox_countingsort.setSelected(true);
         checkbox_radixsort.setSelected(true);
+
+        SpinnerValueFactory<Integer> spinnerValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1_000_000, 10_000, 500);
+        spinner_array_size.setValueFactory(spinnerValueFactory);
+        spinner_array_size.setEditable(true);
 
         button_start.setOnAction(event -> startSorting());
 

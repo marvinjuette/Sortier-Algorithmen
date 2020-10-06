@@ -12,7 +12,7 @@ public class Main {
 
     private static final boolean SHOW_ARRAYS = true;
 
-    private static int[] array = new int[arrayLength];
+    private static int[] array;
     private static int[] arrayUnsorted = new int[arrayLength];
 
     public static void main(String[] args) {
@@ -22,6 +22,8 @@ public class Main {
     }
 
     public static void runAlgorithms(boolean bubblesort, boolean selectionsort, boolean insertionsort, boolean mergesort, boolean quicksort, boolean countingsort, boolean radixsort, boolean windowMode, int arraySize) {
+
+        array = new int[arraySize];
 
         long startTime;
 
