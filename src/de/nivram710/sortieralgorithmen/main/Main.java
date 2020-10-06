@@ -109,12 +109,19 @@ public class Main {
     private static void evaluateTime(long startTime, boolean windowMode) {
         long elapsedTime;
         elapsedTime = System.nanoTime() - startTime;
-        elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
 
-        boolean isUnitSecond = false;
+        String unit = "ns";
+        if (elapsedTime > 1500) {
+            elapsedTime = TimeUnit.MICROSECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
+            unit = "μs";
+        }
+        if (elapsedTime > 1500) {
+            elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.MICROSECONDS);
+            unit = "ms";
+        }
         if (elapsedTime > 1500) {
             elapsedTime = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.MILLISECONDS);
-            isUnitSecond = true;
+            unit = "s";
         }
 
         if (SHOW_ARRAYS) {
@@ -126,7 +133,6 @@ public class Main {
                 System.out.println("Sortiertes Array: " + Arrays.toString(array));
             }
         }
-        String unit = isUnitSecond? "s" : "ms";
         if(windowMode) Controller.getInstace().addLabelToListView("Dauer: " + elapsedTime + unit);
         else System.out.println("Dauer: " + elapsedTime + unit);
 
