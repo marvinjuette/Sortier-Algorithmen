@@ -34,14 +34,17 @@ public class Main {
 
             space();
         }
+        if(windowMode) Controller.getInstace().addLabelToListView("Starte ...");
+
 
         // Bubble Sort
         if(bubblesort) {
-            if(windowMode) Controller.getInstace().addLabelToListView("================== Bubble Sort =================");
-            else System.out.println("================== Bubble Sort =================");
             initArray();
             startTime = System.nanoTime();
             BubbleSort.sort(array);
+            if(windowMode) Controller.getInstace().listview_results.getItems().clear();
+            if(windowMode) Controller.getInstace().addLabelToListView("================== Bubble Sort =================");
+            else System.out.println("================== Bubble Sort =================");
             evaluateTime(startTime, windowMode);
         }
 
@@ -124,6 +127,10 @@ public class Main {
         if (elapsedTime > 1500) {
             elapsedTime = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.MILLISECONDS);
             unit = "s";
+        }
+        if (elapsedTime > 90) {
+            elapsedTime = TimeUnit.MINUTES.convert(elapsedTime, TimeUnit.SECONDS);
+            unit = "min";
         }
 
         if (SHOW_ARRAYS) {
