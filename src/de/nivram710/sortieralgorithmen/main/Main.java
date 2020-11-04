@@ -27,30 +27,32 @@ public class Main {
 
         long startTime;
 
-        if(!windowMode) {
+        if (!windowMode) {
             System.out.println("================================================");
             System.out.println("============= Sortier Algorithmen ==============");
             System.out.println("================================================");
 
             space();
         }
-        if(windowMode) Controller.getInstace().addLabelToListView("Starte ...");
+        if (windowMode) Controller.getInstace().addLabelToListView("Starte ...");
 
 
         // Bubble Sort
-        if(bubblesort) {
+        if (bubblesort) {
             initArray();
             startTime = System.nanoTime();
             BubbleSort.sort(array);
-            if(windowMode) Controller.getInstace().listview_results.getItems().clear();
-            if(windowMode) Controller.getInstace().addLabelToListView("================== Bubble Sort =================");
+            if (windowMode) Controller.getInstace().listview_results.getItems().clear();
+            if (windowMode)
+                Controller.getInstace().addLabelToListView("================== Bubble Sort =================");
             else System.out.println("================== Bubble Sort =================");
             evaluateTime(startTime, windowMode);
         }
 
         // Insertion Sort
-        if(insertionsort) {
-            if(windowMode) Controller.getInstace().addLabelToListView("================= Insertion Sort ================");
+        if (insertionsort) {
+            if (windowMode)
+                Controller.getInstace().addLabelToListView("================= Insertion Sort ================");
             else System.out.println("================= Insertion Sort ================");
             initArray();
             startTime = System.nanoTime();
@@ -59,8 +61,9 @@ public class Main {
         }
 
         // Selection Sort
-        if(selectionsort) {
-            if(windowMode) Controller.getInstace().addLabelToListView("================= Selection Sort ================");
+        if (selectionsort) {
+            if (windowMode)
+                Controller.getInstace().addLabelToListView("================= Selection Sort ================");
             else System.out.println("================= Selection Sort ================");
             initArray();
             startTime = System.nanoTime();
@@ -69,8 +72,9 @@ public class Main {
         }
 
         // Merge Sort
-        if(mergesort) {
-            if(windowMode) Controller.getInstace().addLabelToListView("=================== Merge Sort ===================");
+        if (mergesort) {
+            if (windowMode)
+                Controller.getInstace().addLabelToListView("=================== Merge Sort ===================");
             else System.out.println("=================== Merge Sort ===================");
             initArray();
             startTime = System.nanoTime();
@@ -79,8 +83,9 @@ public class Main {
         }
 
         // Quick Sort
-        if(quicksort) {
-            if(windowMode) Controller.getInstace().addLabelToListView("=================== Quick Sort =================");
+        if (quicksort) {
+            if (windowMode)
+                Controller.getInstace().addLabelToListView("=================== Quick Sort =================");
             else System.out.println("=================== Quick Sort =================");
             initArray();
             startTime = System.nanoTime();
@@ -89,8 +94,9 @@ public class Main {
         }
 
         // Counting Sort
-        if(countingsort) {
-            if(windowMode) Controller.getInstace().addLabelToListView("================= Counting Sort ================");
+        if (countingsort) {
+            if (windowMode)
+                Controller.getInstace().addLabelToListView("================= Counting Sort ================");
             else System.out.println("================= Counting Sort ================");
             initArray();
             startTime = System.nanoTime();
@@ -99,8 +105,8 @@ public class Main {
         }
 
         // Radix Sort
-        if(radixsort) {
-            if(windowMode) Controller.getInstace().addLabelToListView("================= Radix Sort ================");
+        if (radixsort) {
+            if (windowMode) Controller.getInstace().addLabelToListView("================= Radix Sort ================");
             else System.out.println("================= Radix Sort ================");
             initArray();
             startTime = System.nanoTime();
@@ -108,7 +114,7 @@ public class Main {
             evaluateTime(startTime, windowMode);
         }
 
-        if(windowMode) Controller.getInstace().button_start.setDisable(false);
+        if (windowMode) Controller.getInstace().button_start.setDisable(false);
     }
 
     private static void evaluateTime(long startTime, boolean windowMode) {
@@ -119,22 +125,28 @@ public class Main {
         if (elapsedTime > 1500) {
             elapsedTime = TimeUnit.MICROSECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
             unit = "μs";
-        }
-        if (elapsedTime > 1500) {
-            elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.MICROSECONDS);
-            unit = "ms";
-        }
-        if (elapsedTime > 1500) {
-            elapsedTime = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.MILLISECONDS);
-            unit = "s";
-        }
-        if (elapsedTime > 90) {
-            elapsedTime = TimeUnit.MINUTES.convert(elapsedTime, TimeUnit.SECONDS);
-            unit = "min";
+
+            if (elapsedTime > 1500) {
+                elapsedTime = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.MICROSECONDS);
+                unit = "ms";
+
+                if (elapsedTime > 1500) {
+                    elapsedTime = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.MILLISECONDS);
+                    unit = "s";
+
+                    if (elapsedTime > 90) {
+                        elapsedTime = TimeUnit.MINUTES.convert(elapsedTime, TimeUnit.SECONDS);
+                        unit = "min";
+                    }
+
+                }
+
+            }
+
         }
 
         if (SHOW_ARRAYS) {
-            if(windowMode) {
+            if (windowMode) {
                 Controller.getInstace().addLabelToListView("Unsortiertes Array: " + Arrays.toString(arrayUnsorted));
                 Controller.getInstace().addLabelToListView("Sortiertes Array: " + Arrays.toString(array));
             } else {
@@ -142,10 +154,10 @@ public class Main {
                 System.out.println("Sortiertes Array: " + Arrays.toString(array));
             }
         }
-        if(windowMode) Controller.getInstace().addLabelToListView("Dauer: " + elapsedTime + unit);
+        if (windowMode) Controller.getInstace().addLabelToListView("Dauer: " + elapsedTime + unit);
         else System.out.println("Dauer: " + elapsedTime + unit);
 
-        if(!windowMode) space();
+        if (!windowMode) space();
     }
 
     private static void space() {
